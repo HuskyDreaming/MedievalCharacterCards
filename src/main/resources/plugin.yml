@@ -1,0 +1,12 @@
+name: MedievalCharacterCards
+version: '1.0-SNAPSHOT'
+main: com.huskydreaming.medievalcharactercards.MedievalCharacterCardsPlugin
+api-version: '1.17'
+description: A plugin for the medieval kingdoms server
+website: medievalkingdoms.net
+softdepend: ["PlaceholderAPI"]
+
+commands:
+  medievalcharactercards:
+    description: The Medieval Character Card Command
+    aliases: [mcc, charactercards, character, char, charcard]
