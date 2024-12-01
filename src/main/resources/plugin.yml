@@ -1,5 +1,5 @@
 name: MedievalCharacterCards
-version: '1.0-SNAPSHOT'
+version: '1.0.1-SNAPSHOT'
 main: com.huskydreaming.medievalcharactercards.MedievalCharacterCardsPlugin
 api-version: '1.17'
 description: A plugin for the medieval kingdoms server
