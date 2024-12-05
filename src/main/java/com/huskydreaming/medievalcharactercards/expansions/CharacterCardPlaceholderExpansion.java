@@ -2,6 +2,7 @@ package com.huskydreaming.medievalcharactercards.expansions;
 
 import com.huskydreaming.huskycore.HuskyPlugin;
 import com.huskydreaming.medievalcharactercards.data.Character;
+import com.huskydreaming.medievalcharactercards.enumerations.Message;
 import com.huskydreaming.medievalcharactercards.repositories.interfaces.CharacterRepository;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
@@ -30,10 +31,25 @@ public class CharacterCardPlaceholderExpansion extends PlaceholderExpansion {
             }
         }
 
+        if (params.equalsIgnoreCase("height")) {
+            try {
+                Character character = characterRepository.getCharacter(player.getUniqueId());
+                return String.valueOf(character.getHeight());
+            } catch (ExecutionException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
         if (params.equalsIgnoreCase("first_name")) {
             try {
                 Character character = characterRepository.getCharacter(player.getUniqueId());
-                return character.getFirstName();
+                String firstName = character.getFirstName();
+
+                if(firstName.equalsIgnoreCase(Message.GENERAL_NONE.parse())) {
+                    firstName = player.getName();
+                }
+
+                return firstName;
             } catch (ExecutionException e) {
                 throw new RuntimeException(e);
             }
@@ -98,10 +114,25 @@ public class CharacterCardPlaceholderExpansion extends PlaceholderExpansion {
             }
         }
 
+        if (params.equalsIgnoreCase("height")) {
+            try {
+                Character character = characterRepository.getCharacter(player.getUniqueId());
+                return String.valueOf(character.getHeight());
+            } catch (ExecutionException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
         if (params.equalsIgnoreCase("first_name")) {
             try {
                 Character character = characterRepository.getCharacter(player.getUniqueId());
-                return character.getFirstName();
+                String firstName = character.getFirstName();
+
+                if(firstName.equalsIgnoreCase(Message.GENERAL_NONE.parse())) {
+                    firstName = player.getName();
+                }
+
+                return firstName;
             } catch (ExecutionException e) {
                 throw new RuntimeException(e);
             }

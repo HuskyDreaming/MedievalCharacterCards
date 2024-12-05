@@ -18,6 +18,32 @@ public class CharacterRepositoryImpl implements CharacterRepository {
 
     private HuskyPlugin plugin;
 
+    private final RemovalListener<UUID, Character> removalListener = notification -> {
+        Yaml yaml = new Yaml("characters/" + notification.getKey());
+        yaml.load(plugin);
+        FileConfiguration configuration = yaml.getConfiguration();
+
+        Character character = notification.getValue();
+        if (character != null) {
+            configuration.set("age", character.getAge());
+            configuration.set("height", character.getHeight());
+            configuration.set("gender", character.getGender());
+            configuration.set("first-name", character.getFirstName());
+            configuration.set("middle-name", character.getMiddleName());
+            configuration.set("last-name", character.getLastName());
+            configuration.set("title", character.getTitle());
+            configuration.set("description", character.getDescription());
+
+            yaml.save();
+        }
+    };
+
+    private final Cache<UUID, Character> characters = CacheBuilder
+            .newBuilder()
+            .removalListener(removalListener)
+            .expireAfterWrite(5, TimeUnit.MINUTES)
+            .build();
+
     @Override
     public void deserialize(HuskyPlugin plugin) {
         this.plugin = plugin;
@@ -27,32 +53,6 @@ public class CharacterRepositoryImpl implements CharacterRepository {
     public void serialize(HuskyPlugin plugin) {
         characters.invalidateAll();
     }
-
-    private final RemovalListener<UUID, Character> removalListener = notification -> {
-        Yaml yaml = new Yaml("characters/" + notification.getKey());
-        yaml.load(plugin);
-        FileConfiguration configuration = yaml.getConfiguration();
-
-        Character character = notification.getValue();
-        if (character != null) {
-            configuration.set("age", character.getAge());
-            configuration.set("gender", character.getGender());
-            configuration.set("first-name", character.getFirstName());
-            configuration.set("middle-name", character.getMiddleName());
-            configuration.set("last-name", character.getLastName());
-            configuration.set("title", character.getTitle());
-            configuration.set("description", character.getDescription());
-
-            yaml.save();
-            plugin.getLogger().info("[Storage] Successfully saved character for " + notification.getKey());
-        }
-    };
-
-    private final Cache<UUID, Character> characters = CacheBuilder
-            .newBuilder()
-            .removalListener(removalListener)
-            .expireAfterWrite(5, TimeUnit.MINUTES)
-            .build();
 
     @Override
     public Character getCharacter(UUID uuid) throws ExecutionException {
@@ -64,6 +64,9 @@ public class CharacterRepositoryImpl implements CharacterRepository {
             FileConfiguration configuration = yaml.getConfiguration();
             int age = configuration.getInt("age");
             character.setAge(age);
+
+            int height = configuration.getInt("height");
+            character.setHeight(height);
 
             String title = configuration.getString("title");
             if (title != null) character.setTitle(title);

@@ -4,25 +4,43 @@ language: en-us
 # Minimum characters/number limit allowed
 min:
   age: 0
+  height: 140
   first-name: 3
   middle-name: 3
   last-name: 3
+  description: 0
 
 # Maximum characters/number limit allowed
 max:
   age: 100
-  first-name: 12
+  height: 200
+  first-name: 8
   middle-name: 10
-  last-name: 16
+  last-name: 12
+  description: 24
+
+# Format when viewing a player's character card
+# PlaceholderAPI supported!
+
+# Built-in Placeholders:
+# <player-name> | Players name
+# <age>         | Age
+# <first>       | First name
+# <middle>      | Middle name
+# <last>        | Last name
+# <description> | Description
+# <title>       | Title (Example Mr, MRS)
+# <gender>      | Gender (Example Male, Female)
 
 view-format:
   - ""
   - "         &a<player-name>'s Info         "
-  - " &f&o<desc>"
+  - " &f&o<description>"
   - " &7Title: &f<title>"
   - " &7First: &f<first>"
   - " &7Middle: &f<middle>"
   - " &7Last: &f<last>"
   - " &7Age: &f<age>"
+  - " &7Height: &f<age>cm"
   - " &7Gender: &f<gender>"
   - ""

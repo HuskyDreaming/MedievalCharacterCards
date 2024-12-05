@@ -6,7 +6,9 @@ import com.huskydreaming.huskycore.commands.providers.PlayerCommandProvider;
 import com.huskydreaming.huskycore.utilities.NumberUtil;
 import com.huskydreaming.medievalcharactercards.commands.CommandLabel;
 import com.huskydreaming.medievalcharactercards.data.Character;
+import com.huskydreaming.medievalcharactercards.enumerations.CharacterType;
 import com.huskydreaming.medievalcharactercards.enumerations.Message;
+import com.huskydreaming.medievalcharactercards.handlers.interfaces.ConfigHandler;
 import com.huskydreaming.medievalcharactercards.repositories.interfaces.CharacterRepository;
 import org.bukkit.entity.Player;
 
@@ -15,9 +17,11 @@ import java.util.concurrent.ExecutionException;
 @CommandAnnotation(label = CommandLabel.AGE)
 public class AgeCommand implements PlayerCommandProvider {
 
+    private final ConfigHandler configHandler;
     private final CharacterRepository characterRepository;
 
     public AgeCommand(HuskyPlugin plugin) {
+        configHandler = plugin.provide(ConfigHandler.class);
         characterRepository = plugin.provide(CharacterRepository.class);
     }
 
@@ -31,6 +35,20 @@ public class AgeCommand implements PlayerCommandProvider {
             age = Integer.parseInt(number);
         } else {
             player.sendMessage(Message.GENERAL_VALID_NUMBER.prefix());
+            return;
+        }
+
+        CharacterType type = CharacterType.AGE;
+
+        int minAge = configHandler.getMinValue(type);
+        if (age < minAge) {
+            player.sendMessage(Message.GENERAL_VALID_MIN.prefix(type.getName(), minAge));
+            return;
+        }
+
+        int maxAge = configHandler.getMaxValue(type);
+        if (age > maxAge) {
+            player.sendMessage(Message.GENERAL_VALID_MAX.prefix(type.getName(), maxAge));
             return;
         }
 

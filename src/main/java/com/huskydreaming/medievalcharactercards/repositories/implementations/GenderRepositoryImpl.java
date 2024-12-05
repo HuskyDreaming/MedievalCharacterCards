@@ -20,7 +20,7 @@ public class GenderRepositoryImpl implements GenderRepository {
 
         FileConfiguration configuration = yaml.getConfiguration();
         List<String> tempGenders = configuration.getStringList("genders");
-        if(tempGenders.isEmpty()) {
+        if (tempGenders.isEmpty()) {
             genders.add("Male");
             genders.add("Female");
             genders.add("Other");
@@ -29,12 +29,16 @@ public class GenderRepositoryImpl implements GenderRepository {
             yaml.save();
         } else {
             this.genders.addAll(tempGenders);
+
         }
+
+        genders.add("none");
     }
 
     @Override
     public void serialize(HuskyPlugin plugin) {
         FileConfiguration configuration = yaml.getConfiguration();
+        genders.remove("none");
         configuration.set("genders", genders);
         yaml.save();
     }

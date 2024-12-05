@@ -1,8 +1,11 @@
 package com.huskydreaming.medievalcharactercards.data;
 
+import com.huskydreaming.medievalcharactercards.enumerations.Message;
+
 public class Character {
 
     private int age;
+    private int height;
     private String title;
     private String firstName;
     private String middleName;
@@ -18,8 +21,16 @@ public class Character {
         this.age = age;
     }
 
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
     public String getTitle() {
-        return title == null ? "none" : title;
+        return title == null ? Message.GENERAL_NONE.parse() : title;
     }
 
     public void setTitle(String title) {
@@ -27,7 +38,7 @@ public class Character {
     }
 
     public String getFirstName() {
-        return firstName == null ? "none" : firstName;
+        return firstName == null ? Message.GENERAL_NONE.parse() : firstName;
     }
 
     public void setFirstName(String firstName) {
@@ -35,7 +46,7 @@ public class Character {
     }
 
     public String getMiddleName() {
-        return middleName == null ? "none" : middleName;
+        return middleName == null ? Message.GENERAL_NONE.parse() : middleName;
     }
 
     public void setMiddleName(String middleName) {
@@ -43,7 +54,7 @@ public class Character {
     }
 
     public String getLastName() {
-        return lastName == null ? "none" : lastName;
+        return lastName == null ? Message.GENERAL_NONE.parse() : lastName;
     }
 
     public void setLastName(String lastName) {
@@ -51,7 +62,7 @@ public class Character {
     }
 
     public String getGender() {
-        return gender == null ? "none" : gender;
+        return gender == null ? Message.GENERAL_NONE.parse() : gender;
     }
 
     public void setGender(String gender) {
@@ -59,7 +70,7 @@ public class Character {
     }
 
     public String getDescription() {
-        return description == null ? "none" : description;
+        return description == null ? Message.GENERAL_NONE.parse() : description;
     }
 
     public void setDescription(String description) {
