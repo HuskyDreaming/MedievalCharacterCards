@@ -3,7 +3,7 @@ Here’s the formatted README for **Medieval Character Cards**:
 ---
 
 # Medieval Character Cards  
-![Spigot](https://img.shields.io/badge/Spigot-1.21.x-green.svg)  ![Version](https://img.shields.io/badge/Version-1.2.0-blue.svg)  
+![Spigot](https://img.shields.io/badge/Spigot-1.21.X-green.svg)  ![Version](https://img.shields.io/badge/Version-1.2.0-blue.svg)  
 
 **Medieval Character Cards** is a highly customizable plugin for Minecraft servers, providing players with the ability to create detailed character profiles. Designed for roleplay-focused servers, this plugin enhances immersion by allowing users to personalize attributes such as age, gender, title, and more. Whether you’re building a medieval kingdom or running a fantasy-themed server, this plugin adds depth and creativity to your gameplay.
 
