@@ -17,7 +17,7 @@ max:
   first-name: 8
   middle-name: 10
   last-name: 12
-  description: 24
+  description: 128
 
 # Format when viewing a player's character card
 # PlaceholderAPI supported!
@@ -41,6 +41,6 @@ view-format:
   - " &7Middle: &f<middle>"
   - " &7Last: &f<last>"
   - " &7Age: &f<age>"
-  - " &7Height: &f<age>cm"
+  - " &7Height: &f<height>cm"
   - " &7Gender: &f<gender>"
   - ""

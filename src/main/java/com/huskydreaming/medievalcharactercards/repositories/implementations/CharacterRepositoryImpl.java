@@ -7,9 +7,10 @@ import com.huskydreaming.huskycore.HuskyPlugin;
 import com.huskydreaming.huskycore.storage.Yaml;
 import com.huskydreaming.medievalcharactercards.data.Character;
 import com.huskydreaming.medievalcharactercards.repositories.interfaces.CharacterRepository;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
 
+import java.io.File;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -91,12 +92,20 @@ public class CharacterRepositoryImpl implements CharacterRepository {
     }
 
     @Override
-    public Character getCharacter(Player player) throws ExecutionException {
-        return getCharacter(player.getUniqueId());
+    public Character getCharacter(OfflinePlayer offlinePlayer) throws ExecutionException {
+        return getCharacter(offlinePlayer.getUniqueId());
     }
 
     @Override
-    public void save(Player player) {
-        characters.invalidate(player.getUniqueId());
+    public void save(OfflinePlayer offlinePlayer) {
+        characters.invalidate(offlinePlayer.getUniqueId());
+    }
+
+    @Override
+    public boolean delete(OfflinePlayer offlinePlayer) {
+        UUID uuid = offlinePlayer.getUniqueId();
+        File file = new File(plugin.getDataFolder() + "/characters/" + uuid + ".yml");
+        characters.invalidate(uuid);
+        return file.exists() && file.delete();
     }
 }

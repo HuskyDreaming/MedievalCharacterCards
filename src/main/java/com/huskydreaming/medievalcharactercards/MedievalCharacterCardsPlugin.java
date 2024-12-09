@@ -36,6 +36,7 @@ public final class MedievalCharacterCardsPlugin extends HuskyPlugin {
         CommandHandler commandHandler = handlerRegistry.provide(CommandHandler.class);
         commandHandler.setCommandExecutor(new BaseCommand(this));
         commandHandler.add(new AgeCommand(this));
+        commandHandler.add(new DeleteCommand(this));
         commandHandler.add(new DescriptionCommand(this));
         commandHandler.add(new FirstCommand(this));
         commandHandler.add(new GenderCommand(this));

@@ -15,7 +15,10 @@ public enum Message implements Parseable {
 
     // General Menu Items
     GENERAL_PREFIX("#b5e74aCharacterCard: #b5b5b5"),
+    GENERAL_DELETE_FAIL("Unsuccessfully deleted character card as it is not saved in the system"),
+    GENERAL_DELETE_SUCCESS("Successfully deleted character card for <0>"),
     GENERAL_NONE("none"),
+    GENERAL_NEVER_PLAYED("&f<0>&7 has never played before"),
     GENERAL_PERMISSION("You do not have permissions for that command"),
     GENERAL_PLAYER_FALSE("That player has never played before!"),
     GENERAL_SET_AGE("You have successfully set your age to &f<0>"),
