@@ -3,12 +3,10 @@ Here’s the formatted README for **Medieval Character Cards**:
 ---
 
 # Medieval Character Cards  
-![Spigot](https://img.shields.io/badge/Spigot-1.19_--_1.21.1-green.svg)  
-![Version](https://img.shields.io/badge/Version-1.2.0-blue.svg)  
+![Spigot](https://img.shields.io/badge/Spigot-1.19_--_1.21.1-green.svg)  ![Version](https://img.shields.io/badge/Version-1.2.0-blue.svg)  
 
 **Medieval Character Cards** is a highly customizable plugin for Minecraft servers, providing players with the ability to create detailed character profiles. Designed for roleplay-focused servers, this plugin enhances immersion by allowing users to personalize attributes such as age, gender, title, and more. Whether you’re building a medieval kingdom or running a fantasy-themed server, this plugin adds depth and creativity to your gameplay.
 
----
 
 ## Features  
 
@@ -26,16 +24,14 @@ Here’s the formatted README for **Medieval Character Cards**:
   Repository-based architecture for managing character, gender, and title data efficiently.  
 
 - **Extensive Localization**:  
-  Full translation support to provide an accessible experience for players worldwide.  
-
----
+  Full translation support to provide an accessible experience for players worldwide.
+  
 
 ## Dependencies  
 
 - **JAVA 17+**  
-- **PlaceholderAPI** (Optional, for placeholder functionality)  
-
----
+- **PlaceholderAPI** (Optional, for placeholder functionality)
+- 
 
 ## Installation  
 
@@ -43,7 +39,6 @@ Here’s the formatted README for **Medieval Character Cards**:
 2. Place the `.jar` file into your server's `plugins` folder (compatible with Spigot, Paper, or similar platforms).  
 3. Restart your server or reload the plugin to activate it (`/reload` or `/restart`).  
 
----
 
 ## Commands  
 
@@ -56,7 +51,6 @@ The plugin offers the following commands for managing character cards:
 
 *(Permissions and additional commands can be configured via the plugin settings.)*  
 
----
 
 ## Configuration  
 
@@ -76,16 +70,16 @@ profile-limit: 1
 notify-on-edit: true  
 ```  
 
----
+
 
 ## Authors  
 
 - [@HuskyDreaming](https://github.com/HuskyDreaming)  
 
----
+
 
 ## LICENSE  
 
 This plugin is released under the MIT License. See the [LICENSE](LICENSE) file for details.  
 
----  
+  
