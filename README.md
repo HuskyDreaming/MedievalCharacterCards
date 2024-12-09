@@ -57,17 +57,52 @@ The plugin offers the following commands for managing character cards:
 Adjust the plugin’s settings in `config.yml`:  
 
 ```yaml  
-# Default language for the plugin  
-language: en_us  
+# Different language support
+language: en-us
 
-# Enable placeholders for integration with PlaceholderAPI  
-placeholders: true  
+# Minimum characters/number limit allowed
+min:
+  age: 0
+  height: 140
+  first-name: 3
+  middle-name: 3
+  last-name: 3
+  description: 0
 
-# Maximum number of profiles per player  
-profile-limit: 1  
+# Maximum characters/number limit allowed
+max:
+  age: 100
+  height: 200
+  first-name: 8
+  middle-name: 10
+  last-name: 12
+  description: 128
 
-# Notify players of profile updates  
-notify-on-edit: true  
+# Format when viewing a player's character card
+# PlaceholderAPI supported!
+
+# Built-in Placeholders:
+# <player-name> | Players name
+# <age>         | Age
+# <first>       | First name
+# <middle>      | Middle name
+# <last>        | Last name
+# <description> | Description
+# <title>       | Title (Example Mr, MRS)
+# <gender>      | Gender (Example Male, Female)
+
+view-format:
+  - ""
+  - "         &a<player-name>'s Info         "
+  - " &f&o<description>"
+  - " &7Title: &f<title>"
+  - " &7First: &f<first>"
+  - " &7Middle: &f<middle>"
+  - " &7Last: &f<last>"
+  - " &7Age: &f<age>"
+  - " &7Height: &f<height>cm"
+  - " &7Gender: &f<gender>"
+  - ""
 ```  
 
 
